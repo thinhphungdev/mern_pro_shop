@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* specify 1rem = 10px */
+    font-size: 62.5%;
+} 
+
+main {
+    min-height: 80vh;
+}
+
+.rating span {
+    margin: 0.1rem;
+}

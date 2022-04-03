@@ -1,0 +1,31 @@
+{
+  "name": "mern_pro_shop",
+  "version": "1.0.0",
+  "description": "MERN I-Shop Web app ",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://thinhphungdev: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@github.com/thinhphungdev/mern_pro_shop.git"
+  },
+  "author": "Howard Phung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinhphungdev/mern_pro_shop/issues"
+  },
+  "homepage": "https://github.com/thinhphungdev/mern_pro_shop#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
