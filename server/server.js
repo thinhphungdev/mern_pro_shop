@@ -1,30 +1,39 @@
 import express from "express";
-import dotenv from "dotenv"
-import allProduct  from './data/products.js';
+import dotenv from "dotenv";
+import colors from "colors";
+import connectDB from "./config/db.js";
+import allProduct from "./data/products.js";
 
 // Config ENV
 dotenv.config();
 
-// Init express app 
+// connect to the DB
+connectDB();
+
+// Init express app
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('API is running');
+app.get("/", (req, res) => {
+  res.send("API is running");
 });
 
 // Get list of products
-app.get('/api/products/', (req, res) => {
-    res.json(allProduct);
-})
-
-// Get Product by ID
-app.get('/api/products/:id', (req, res) => {
-    const product = allProduct.find(product => product._id === req?.params?.id);
-    if (!product) res.send("Product doesn't exist! ")
-    res.send(product)
+app.get("/api/products/", (req, res) => {
+  res.json(allProduct);
 });
 
+// Get Product by ID
+app.get("/api/products/:id", (req, res) => {
+  const product = allProduct.find((product) => product._id === req?.params?.id);
+  if (!product) res.send("Product doesn't exist! ");
+  res.send(product);
+});
 
 const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} at port + ${process.env.PORT}`));
+app.listen(
+  PORT,
+  console.log(
+    `Server is running in ${process.env.NODE_ENV} at port ${process.env.PORT}`.blue.bold
+  )
+);
